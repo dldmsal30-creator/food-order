@@ -5,8 +5,8 @@
     {category:'세트',name:'악마의 야식 세트',price:43000,description:'지코바 · 모둠감자튀김 · 맥주'},
     {category:'세트',name:'할로윈 ! special ! 세트',price:25000,description:'지옥불 라면밥 · 마녀의 눈알 화채 · 에이드 1잔 (청포도·블루레몬·자몽 중 선택)'},
     {category:'탕 & 찌개',name:'부대찌개',price:23000},{category:'탕 & 찌개',name:'오뎅탕',price:20000},{category:'탕 & 찌개',name:'공깃밥 / 면사리 추가',price:1000,description:'공깃밥 또는 면사리 중 선택해 요청사항에 적어주세요'},
-    {category:'메인 안주',name:'수육',price:24000},{category:'메인 안주',name:'지코바',price:23000},{category:'메인 안주',name:'더블순살치킨',price:21000},{category:'메인 안주',name:'훈제삼겹살',price:20000},
-    {category:'사이드 & 디저트',name:'모둠감자튀김',price:15000},{category:'사이드 & 디저트',name:'두부김치',price:15000},{category:'사이드 & 디저트',name:'파인애플샤베트',price:9000},{category:'사이드 & 디저트',name:'콘치즈',price:9000},
+    {category:'메인 안주',name:'수육',price:24000},{category:'메인 안주',name:'지코바',price:23000},{category:'메인 안주',name:'더블순살치킨',price:22000},{category:'메인 안주',name:'훈제삼겹살',price:20000},
+    {category:'사이드 & 디저트',name:'모둠감자튀김',price:15000},{category:'메인 안주',name:'두부김치',price:15000},{category:'사이드 & 디저트',name:'파인애플샤베트',price:9000},{category:'사이드 & 디저트',name:'콘치즈',price:9000},
     {category:'할로윈 특별 메뉴',name:'라면밥 (지옥불 라면밥)',price:9000},{category:'할로윈 특별 메뉴',name:'화채 (마녀의 눈알 화채)',price:14000},
     {category:'주류 & 음료',name:'맥주',price:6000},{category:'주류 & 음료',name:'매화수 / 청하',price:6000},{category:'주류 & 음료',name:'소주 (기타 술)',price:5000},{category:'주류 & 음료',name:'음료',price:2000}
   ];
