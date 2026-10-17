@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#20172d"><meta name="description" content="스시X가리아 일일호프 스텝 주문 관리">
+  <title>스텝 주문 현황 · 스시X가리아</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="staff.css"><link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-page">
+  <main class="admin-app">
+    <header class="admin-header"><a class="back-link" href="index.html">← 손님 주문 화면</a><div class="admin-brand"><span class="eyebrow">HALLOWEEN NIGHT · STAFF</span><h1>스텝 주문 현황</h1><p>스시X가리아 일일호프</p></div><span id="live-status" class="live-status">연결 대기</span></header>
+    <section id="admin-login-panel" class="admin-login-panel hidden"><div class="admin-login-card"><div class="lock-badge">🔐</div><span class="eyebrow">STAFF ACCESS</span><h2>운영진 로그인</h2><p>등록된 운영진 계정으로 로그인해 주세요.</p><form id="staff-login-form"><label>이메일<input id="staff-email" type="email" autocomplete="username" required placeholder="운영진 이메일"></label><label>비밀번호<input id="staff-password" type="password" autocomplete="current-password" required placeholder="비밀번호"></label><button class="primary-button wide" type="submit">주문 현황 열기 <span>→</span></button></form><p id="login-error" class="admin-error" role="alert"></p><small>관리자 권한이 등록된 계정만 주문을 확인할 수 있습니다.</small></div></section>
+    <section id="admin-setup-panel" class="setup-panel hidden"><h2>공용 주문 사이트 연결이 필요해요</h2><p>아직 Supabase 연결값이 설정되지 않았습니다. Supabase 프로젝트의 <b>Project URL</b>과 <b>publishable key</b>를 연결해야 손님 주문이 한곳에 모이고 모든 스텝에게 주문·입금·서빙 상태가 실시간으로 공유됩니다.</p><p class="setup-note">키가 준비되면 `config.js`에 연결하고 DB를 활성화하겠습니다. `service_role` 또는 secret key는 보내지 마세요.</p><p>이 페이지를 `file://`로 열면 이 컴퓨터에서만 보입니다. QR 주문과 스텝 공유를 시작하려면 HTTPS 웹 주소에 배포도 해야 합니다.</p></section>
+    <section id="admin-dashboard" class="hidden">
+      <div class="dashboard-heading"><div><span class="eyebrow">LIVE ORDER BOARD</span><h2>전체 주문 <span id="order-count-label">0건</span></h2></div><div class="heading-actions"><button id="refresh-orders" class="small-button">새로고침</button><button id="staff-logout" class="small-button">로그아웃</button></div></div>
+      <div class="live-banner"><i></i><span>여러 스텝이 같은 주문 현황을 보고 있습니다. 상태 변경은 모두에게 바로 반영됩니다.</span></div>
+      <div class="stats"><div class="stat"><small>주문 건수</small><b id="stat-count">0건</b></div><div class="stat"><small>주문 금액 합계</small><b id="stat-sales">0원</b></div><div class="stat"><small>신규 주문</small><b id="stat-new">0건</b></div><div class="stat"><small>입금 대기</small><b id="stat-unpaid">0건</b></div><div class="stat"><small>할로윈 특가 판매</small><b id="stat-special">0 / 60세트</b></div></div>
+      <div class="admin-filters"><input id="search-orders" type="search" placeholder="주문번호 · 이름 · 메뉴 검색"><select id="filter-table"><option value="">모든 테이블</option></select><select id="filter-cooking"><option value="">모든 조리·서빙 상태</option><option>신규 주문</option><option>조리 중</option><option>조리 완료</option><option>서빙 완료</option></select><select id="filter-payment"><option value="">모든 입금 상태</option><option>입금 대기</option><option>입금 확인</option></select></div>
+      <div id="staff-order-list" class="staff-order-list"><div class="loading">주문을 불러오는 중…</div></div>
+      <details class="admin-settings"><summary>행사명·입금 계좌 설정</summary><form id="event-settings-form"><label>행사명<input id="setting-event-name" maxlength="80" required></label><label>은행<input id="setting-bank-name" maxlength="80"></label><label>계좌번호<input id="setting-account-number" maxlength="60"></label><label>예금주<input id="setting-account-holder" maxlength="80"></label><button class="primary-button" type="submit">설정 저장 <span>→</span></button></form></details>
+    </section>
+    <footer class="admin-footer">주문 상태를 변경하면 접속 중인 모든 운영진 화면에 즉시 공유됩니다.</footer>
+  </main>
+  <div id="admin-toast" class="toast" role="status"></div>
+  <script src="config.js"></script><script src="admin-app.js"></script>
+</body></html>

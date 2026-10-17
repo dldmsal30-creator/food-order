@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10110f"><meta name="description" content="대학 축제 일일호프 모바일 메뉴 주문">
+  <title>스시X가리아 일일호프 · 할로윈</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="staff.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><div><span class="eyebrow">HALLOWEEN NIGHT · 10.31</span><h1 id="event-name">스시X가리아 일일호프</h1></div><button id="admin-open" class="icon-button" aria-label="관리자 화면">⚙</button></header>
+    <main id="guest-view">
+      <section class="hero"><div class="hero-copy"><span class="pill">TRICK OR TREAT · TABLE ORDER</span><h2>스시X가리아<br><em>할로윈 일일호프</em></h2><p>오늘 밤, 맛있는 축제가 열려요.</p></div><div class="hero-art" aria-hidden="true"><span class="moon">☾</span><span class="pumpkin">🎃</span><span class="bat bat-one">✦</span><span class="bat bat-two">✧</span><span class="hero-mark">ONE NIGHT<br>ONLY <b>31</b></span></div></section>
+      <nav id="category-nav" class="category-nav" aria-label="메뉴 카테고리"></nav><section id="menu-list" class="menu-list"></section>
+    </main>
+    <section id="receipt-view" class="receipt-view hidden"></section>
+    <footer id="cart-bar" class="cart-bar"><div class="cart-summary"><span><b id="cart-count">0</b>개 메뉴</span><strong id="cart-total">0원</strong></div><button id="cart-open" class="primary-button">장바구니 보기 <span>→</span></button></footer>
+  </div>
+  <div id="cart-modal" class="modal hidden" role="dialog" aria-modal="true"><div class="sheet"><div class="sheet-head"><div><span class="eyebrow">YOUR ORDER</span><h2>장바구니</h2></div><button class="close-button" data-close="cart-modal" aria-label="닫기">×</button></div><div id="cart-lines"></div><div class="sheet-total"><span>총 주문 금액</span><strong id="modal-total">0원</strong></div><form id="order-form" class="order-form"><label>테이블 번호 <span class="required">필수</span><input id="table-number" required placeholder="예: 12" autocomplete="off"></label><label>입금자명<input id="customer-name" maxlength="30" placeholder="입금하신 분의 이름" autocomplete="name"></label><label id="special-ade-field" class="hidden">세트 에이드 맛 <span class="required">필수</span><select id="special-ade-choice"><option value="">맛을 선택해 주세요</option><option value="좀비 백신 에이드 (청포도)">🧪 청포도 에이드 · 좀비 백신</option><option value="블루문 에이드 (영혼 포션 · 블루레몬)">🌙 블루레몬 에이드 · 블루문 영혼 포션</option><option value="드라큘라 수혈 에이드 (자몽)">🩸 자몽 에이드 · 드라큘라 수혈</option></select><small class="hint">할로윈 정식 또는 special 세트에 에이드 1잔이 포함돼요. 두 세트를 함께 담으면 같은 맛으로 제공돼요.</small></label><label>요청사항 <span class="optional">선택</span><textarea id="request-note" rows="2" maxlength="300" placeholder="예: 덜 맵게 부탁드려요"></textarea></label><p class="confirm-note">주문하기 전에 메뉴와 금액을 확인해 주세요.</p><button id="submit-order" type="submit" class="primary-button wide">주문 내용 확인하고 주문하기 <span>→</span></button></form></div></div>
+  <div id="confirm-modal" class="modal hidden" role="dialog" aria-modal="true"><div class="sheet"><div class="sheet-head"><div><span class="eyebrow">FINAL CHECK</span><h2>이대로 주문할까요?</h2></div><button class="close-button" data-close="confirm-modal" aria-label="닫기">×</button></div><div id="confirm-content"></div><div class="button-row"><button class="secondary-button" data-close="confirm-modal">수정하기</button><button id="confirm-submit" class="primary-button">주문 확정 <span>→</span></button></div></div></div>
+  <div id="admin-modal" class="modal hidden" role="dialog" aria-modal="true"><div class="sheet admin-sheet"><div class="sheet-head"><div><span class="eyebrow">STAFF ONLY</span><h2>운영자 관리</h2></div><button class="close-button" data-close="admin-modal" aria-label="닫기">×</button></div><div id="admin-content"></div></div></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="config.js"></script><script src="app.js"></script>
+</body></html>
+
