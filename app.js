@@ -8,7 +8,7 @@
     {category:'메인 안주',name:'수육',price:24000},{category:'메인 안주',name:'지코바',price:23000},{category:'메인 안주',name:'더블순살치킨',price:22000},{category:'메인 안주',name:'훈제삼겹살',price:20000},
     {category:'사이드 & 디저트',name:'모둠감자튀김',price:15000},{category:'메인 안주',name:'두부김치',price:15000},{category:'사이드 & 디저트',name:'파인애플샤베트',price:9000},{category:'사이드 & 디저트',name:'콘치즈',price:9000},
     {category:'할로윈 특별 메뉴',name:'라면밥 (지옥불 라면밥)',price:9000},{category:'할로윈 특별 메뉴',name:'화채 (마녀의 눈알 화채)',price:14000},
-    {category:'주류 & 음료',name:'맥주',price:6000},{category:'주류 & 음료',name:'매화수 / 청하',price:6000},{category:'주류 & 음료',name:'소주 (기타 술)',price:5000},{category:'주류 & 음료',name:'음료',price:2000}
+    {category:'주류 & 음료',name:'맥주',price:5000},{category:'주류 & 음료',name:'매화수 / 청하',price:6000},{category:'주류 & 음료',name:'소주 (기타 술)',price:5000},{category:'주류 & 음료',name:'음료',price:2000}
   ];
   const categories=[...new Set(menu.map(x=>x.category))], money=n=>new Intl.NumberFormat('ko-KR').format(Number(n)||0)+'원', $=s=>document.querySelector(s), limitedMenuName='할로윈 ! special ! 세트', limitedMenuLimit=60;
   const accountDefaults=window.ACCOUNT_DEFAULTS||{bankName:'토스뱅크',accountNumber:'1002-7989-3300',accountHolder:''};
