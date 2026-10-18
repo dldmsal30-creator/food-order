@@ -1,5 +1,5 @@
 (() => {
-  const $=s=>document.querySelector(s), money=n=>new Intl.NumberFormat('ko-KR').format(Number(n)||0)+'원';
+  const $=s=>document.querySelector(s), money=n=>new Intl.NumberFormat('ko-KR').format(Number(n)||0)+'원', staffLoginEmail='staff@crvgopaobmeifxubevyd.supabase.co';
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const url=window.APP_CONFIG?.supabaseUrl,key=window.APP_CONFIG?.supabaseAnonKey;
   const db=url&&key&&window.supabase?window.supabase.createClient(url,key):null;
@@ -9,7 +9,7 @@
   function showLogin(message=''){ $('#admin-setup-panel').classList.add('hidden');$('#admin-dashboard').classList.add('hidden');$('#admin-login-panel').classList.remove('hidden');$('#login-error').textContent=message }
   function showSetup(){ $('#admin-login-panel').classList.add('hidden');$('#admin-dashboard').classList.add('hidden');$('#admin-setup-panel').classList.remove('hidden');$('#live-status').textContent='DB 미연결' }
   async function start(){if(!db){showSetup();return}const {data:{session}}=await db.auth.getSession();if(!session){showLogin();return}await authorizeAndShow()}
-  $('#staff-login-form').addEventListener('submit',async e=>{e.preventDefault();if(!db){showSetup();return}const button=e.currentTarget.querySelector('button');button.disabled=true;$('#login-error').textContent='';const {error}=await db.auth.signInWithPassword({email:$('#staff-email').value.trim(),password:$('#staff-password').value});button.disabled=false;if(error){showLogin('로그인 정보를 확인해 주세요.');return}await authorizeAndShow()});
+  $('#staff-login-form').addEventListener('submit',async e=>{e.preventDefault();if(!db){showSetup();return}const button=e.currentTarget.querySelector('button');button.disabled=true;$('#login-error').textContent='';const {error}=await db.auth.signInWithPassword({email:staffLoginEmail,password:$('#staff-password').value});button.disabled=false;if(error){showLogin('로그인 정보를 확인해 주세요.');return}await authorizeAndShow()});
   async function authorizeAndShow(){const {data,error}=await db.rpc('is_admin');if(error||!data){await db.auth.signOut();showLogin('관리자 권한이 등록된 계정이 아닙니다.');return}$('#admin-login-panel').classList.add('hidden');$('#admin-setup-panel').classList.add('hidden');$('#admin-dashboard').classList.remove('hidden');$('#live-status').textContent='실시간 연결 중';await Promise.all([loadOrders(),loadSettings()]);subscribeLive()}
   async function loadOrders(){const {data,error}=await db.from('orders').select('*, order_items(*)').order('created_at',{ascending:false});if(error){$('#staff-order-list').innerHTML='<div class="empty-state">주문을 불러오지 못했습니다. 연결을 확인하고 새로고침해 주세요.</div>';return}orders=data||[];render()}
   async function loadSettings(){const {data,error}=await db.from('app_settings').select('*').eq('id',1).maybeSingle();if(error||!data)return;$('#setting-event-name').value=data.event_name||'';$('#setting-bank-name').value=data.bank_name||'';$('#setting-account-number').value=data.account_number||'';$('#setting-account-holder').value=data.account_holder||'';document.querySelector('.admin-brand p').textContent=data.event_name||'스시X가리아 일일호프'}
