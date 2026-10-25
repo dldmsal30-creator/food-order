@@ -44,3 +44,141 @@
 .service-order-card li.served label span{text-decoration:line-through;color:#898b80}
 .service-order-card li input:disabled{opacity:.6}
 .service-order-card ul:empty:after{content:'메뉴가 없는 주문입니다';display:block;padding:12px 0;color:#7d7d74;font-size:12px}
+.settlement-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.settlement-summary article{display:flex;flex-direction:column;gap:5px;padding:13px 12px;border:1px solid #e8e1ec;border-radius:12px;background:#fff}
+.settlement-summary small,.settlement-row small{color:#81778a;font-size:10px;font-weight:700}
+.settlement-summary b{color:#282033;font-size:17px;line-height:1.2;word-break:keep-all}
+.settlement-summary .settlement-profit{background:#fff5e7;border-color:#f2d1a1}
+.settlement-summary .settlement-profit b{color:#a64b28}
+.settlement-note,.settlement-warning{margin:9px 0;padding:10px 12px;border-radius:10px;background:#f5f1f7;color:#675d70;font-size:11px;line-height:1.55}
+.settlement-warning{background:#fff2e4;color:#963f27}
+.settlement-list{display:grid;gap:7px;margin-top:12px}
+.settlement-head,.settlement-row{display:grid;grid-template-columns:minmax(130px,1.5fr) repeat(4,minmax(82px,1fr));gap:8px;align-items:center}
+.settlement-head{padding:5px 12px;color:#827988;font-size:10px;font-weight:800}
+.settlement-row{padding:11px 12px;border:1px solid #ece6ef;border-radius:11px;background:#fff}
+.settlement-row>div:not(.settlement-name){display:flex;flex-direction:column;gap:4px}
+.settlement-row b{font-size:12px;color:#31273b;word-break:keep-all}
+.settlement-name strong{font-size:12px;color:#302639}
+.settlement-name small{display:block;margin-top:3px;line-height:1.4}
+.settlement-row-profit b{color:#a64b28}
+@media(max-width:600px){.settlement-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.settlement-head{display:none}.settlement-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.settlement-name{grid-column:1/-1;padding-bottom:7px;border-bottom:1px solid #eee8f1}.settlement-row>div:not(.settlement-name){min-width:0}}
+.settlement-head{display:none}
+.settlement-row{display:block;padding:0;overflow:hidden}
+.settlement-row .settlement-name{padding:12px 14px;border-bottom:1px solid #eee8f1;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.settlement-quantity{margin-left:auto;padding:5px 8px;border-radius:20px;background:#f2edf5;color:#5e4c68;font-size:10px;font-weight:800}
+.settlement-row .settlement-name>small{flex-basis:100%;margin:0}
+.settlement-row>.settlement-row-sides{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.settlement-side{display:flex;flex-direction:column;gap:6px;padding:12px 14px;min-width:0}
+.settlement-side+.settlement-side{border-left:2px solid #dfd5e4}
+.settlement-side h4{margin:0;color:#756b7c;font-size:11px}
+.settlement-side>b{font-size:16px;color:#342b3d}
+.settlement-side>b small{font-size:10px}
+.settlement-side>span{color:#837989;font-size:10px}
+.settlement-side>strong{display:flex;justify-content:space-between;gap:5px;margin-top:2px;padding-top:7px;border-top:1px dashed #e8e2eb;color:#655a6d;font-size:10px}
+.settlement-side>strong em{font-style:normal;color:#302638;font-size:13px;font-weight:900;white-space:nowrap}
+.profit-side{background:#fffaf3}
+.profit-side>strong em{color:#a64b28}
+@media(max-width:600px){.settlement-row>.settlement-row-sides{grid-template-columns:1fr}.settlement-side{padding:11px 10px}.settlement-side+.settlement-side{border-left:0;border-top:2px solid #dfd5e4}.settlement-side>strong{display:flex}.settlement-side>strong em{display:block;margin-top:0}}
+.settlement-paired{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;margin-top:14px;border:1px solid #e4dce9;border-radius:12px;overflow:hidden;background:#fff}
+.settlement-pane{min-width:0;padding:10px 8px}
+.settlement-pane+.settlement-pane{border-left:2px solid #d9cedf;background:#fffaf3}
+.settlement-pane h3{margin:0 0 8px;font-size:13px;text-align:center;color:#382c42}
+.settlement-pane table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:9px}
+.settlement-pane th,.settlement-pane td{padding:7px 3px;border-bottom:1px solid #eee8f1;text-align:left;vertical-align:middle;overflow-wrap:anywhere}
+.settlement-pane th{font-size:8px;color:#756a7c;background:#f7f3f8}
+.settlement-pane th:first-child,.settlement-pane td:first-child{width:38%}
+.settlement-pane th:nth-child(2),.settlement-pane td:nth-child(2){width:44%}
+.settlement-pane th:last-child,.settlement-pane td:last-child{width:18%;text-align:center}
+.settlement-pane td:first-child strong{display:block;font-size:9px;line-height:1.25;color:#302638}
+.settlement-pane td:first-child small{display:block;margin-top:3px;font-size:7px;line-height:1.25;color:#897f8f}
+.settlement-pane td:nth-child(2)>b{display:block;font-size:9px;white-space:nowrap;color:#362b3d}
+.settlement-pane td:nth-child(2)>b small{font-size:7px}
+.settlement-pane td:nth-child(2)>small{display:block;margin-top:3px;font-size:7px;line-height:1.2;color:#867b8c;overflow-wrap:anywhere}
+.settlement-pane tfoot th{border:0;border-top:2px solid #d8cedd;background:#f3eef5;color:#34293e;font-size:8px;line-height:1.3}
+.settlement-pane tfoot th:last-child{font-size:9px;white-space:nowrap}
+.settlement-income tfoot th{background:#fff0dc;color:#8d4528}
+.settlement-income td:nth-child(2)>b{color:#a64b28}
+
+/* Side-by-side settlement report: one shared menu column, paired values and quantities. */
+.settlement-paired{width:100%;overflow-x:auto;margin-top:14px;border:1px solid #ded5e3;border-radius:12px;background:#fff}
+.settlement-paired table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:9px}
+.settlement-paired th,.settlement-paired td{padding:7px 4px;border-bottom:1px solid #eae4ed;text-align:center;vertical-align:middle;overflow-wrap:anywhere}
+.settlement-paired thead th{background:#f5f1f7;color:#65596e;font-size:8px;font-weight:800}
+.settlement-paired th:first-child,.settlement-paired td:first-child{width:31%;text-align:left}
+.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2),.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:23%}
+.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3),.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:11%}
+.settlement-paired .settlement-profit-group,.settlement-paired .settlement-profit-cell{border-left:2px solid #d8cddd;background:#fff8ef}
+.settlement-paired .settlement-menu-cell strong{display:block;font-size:9px;line-height:1.25;color:#302638}
+.settlement-paired .settlement-menu-cell small{display:block;margin-top:3px;color:#82778a;font-size:7px;line-height:1.25}
+.settlement-paired td>b,.settlement-paired tfoot th>b{display:block;font-size:9px;white-space:nowrap;color:#342a3c}
+.settlement-paired td>small,.settlement-paired tfoot th>small{display:block;margin-top:3px;color:#82788a;font-size:7px;line-height:1.2}
+.settlement-paired tfoot th{border-top:2px solid #cfc3d5;border-bottom:0;background:#f1ebf4;color:#34293e;font-size:8px}
+.settlement-paired tfoot th.settlement-profit-cell{background:#ffefd9;color:#8f4629}
+@media(max-width:600px){.settlement-paired th,.settlement-paired td{padding:6px 2px;font-size:8px}.settlement-paired th:first-child,.settlement-paired td:first-child{width:30%}.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2),.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:24%}.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3),.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:11%}.settlement-paired .settlement-menu-cell strong{font-size:8px}.settlement-paired td>b,.settlement-paired tfoot th>b{font-size:8px}}
+
+/* Readable, full-width paired settlement table */
+.settlement-paired{display:block;width:100%;max-width:none;overflow-x:auto;margin:18px 0 0;border:1px solid #ded5e3;border-radius:14px;background:#fff;box-sizing:border-box}
+.settlement-paired table{width:100%;min-width:680px;table-layout:fixed;border-collapse:collapse;font-size:13px}
+.settlement-paired th,.settlement-paired td{padding:13px 12px;border-bottom:1px solid #eae4ed;text-align:center;vertical-align:middle;overflow-wrap:normal}
+.settlement-paired thead th{padding-top:15px;padding-bottom:15px;background:#f5f1f7;color:#5e5268;font-size:13px;font-weight:850;white-space:nowrap}
+.settlement-paired th:first-child,.settlement-paired td:first-child{width:25%;text-align:left}
+.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2),.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:25%}
+.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3),.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:12.5%}
+.settlement-paired .settlement-profit-group,.settlement-paired .settlement-profit-cell{border-left:3px solid #d8cddd;background:#fff8ef}
+.settlement-paired .settlement-menu-cell strong{display:block;font-size:14px;line-height:1.35;color:#302638;word-break:keep-all}
+.settlement-paired .settlement-menu-cell small{display:block;margin-top:5px;color:#82778a;font-size:11px;line-height:1.4;word-break:keep-all}
+.settlement-paired td>b,.settlement-paired tfoot th>b{display:block;font-size:15px;line-height:1.3;white-space:nowrap;color:#342a3c}
+.settlement-paired td>small,.settlement-paired tfoot th>small{display:block;margin-top:5px;color:#746a7d;font-size:11px;line-height:1.35;white-space:normal}
+.settlement-paired tfoot th{padding-top:15px;padding-bottom:15px;border-top:2px solid #cfc3d5;border-bottom:0;background:#f1ebf4;color:#34293e;font-size:13px}
+.settlement-paired tfoot th.settlement-profit-cell{background:#ffefd9;color:#8f4629}
+@media(max-width:600px){.settlement-paired{margin-top:14px}.settlement-paired table{min-width:640px;font-size:12px}.settlement-paired th,.settlement-paired td{padding:12px 9px}.settlement-paired thead th{font-size:12px}.settlement-paired .settlement-menu-cell strong{font-size:13px}.settlement-paired .settlement-menu-cell small{font-size:10px}.settlement-paired td>b,.settlement-paired tfoot th>b{font-size:14px}.settlement-paired td>small,.settlement-paired tfoot th>small{font-size:10px}}
+
+/* Screen-fit settlement table; only the profit group title is highlighted. */
+.settlement-paired{display:block;width:100%;max-width:100%;overflow-x:hidden;margin:14px 0 0;border:1px solid #ded5e3;border-radius:12px;background:#fff;box-sizing:border-box}
+.settlement-paired table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-size:11px}
+.settlement-paired th,.settlement-paired td{padding:9px 6px;border-bottom:1px solid #eae4ed;text-align:center;vertical-align:middle;overflow-wrap:anywhere}
+.settlement-paired thead th{padding-top:10px;padding-bottom:10px;background:#f5f1f7;color:#5e5268;font-size:11px;font-weight:800;white-space:normal}
+.settlement-paired th:first-child,.settlement-paired td:first-child{width:26%;text-align:left}
+.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2),.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:24%}
+.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3),.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:13%}
+.settlement-paired .settlement-profit-group{border-left:2px solid #d8cddd;background:#ffefd9;color:#8f4629}
+.settlement-paired .settlement-profit-cell{border-left:2px solid #e7dfe9;background:#fff;color:#342a3c}
+.settlement-paired .settlement-menu-cell strong{display:block;font-size:12px;line-height:1.3;color:#302638;word-break:keep-all}
+.settlement-paired .settlement-menu-cell small{display:block;margin-top:4px;color:#82778a;font-size:9px;line-height:1.3;word-break:keep-all}
+.settlement-paired td>b,.settlement-paired tfoot th>b{display:block;font-size:12px;line-height:1.25;white-space:normal;color:#342a3c}
+.settlement-paired td>small,.settlement-paired tfoot th>small{display:block;margin-top:3px;color:#746a7d;font-size:9px;line-height:1.25;white-space:normal}
+.settlement-paired tfoot th{padding-top:10px;padding-bottom:10px;border-top:2px solid #cfc3d5;border-bottom:0;background:#f1ebf4;color:#34293e;font-size:11px}
+.settlement-paired tfoot th.settlement-profit-cell{background:#fff;color:#8f4629}
+@media(max-width:600px){.settlement-paired{overflow-x:auto}.settlement-paired table{min-width:0;font-size:10px}.settlement-paired th,.settlement-paired td{padding:8px 3px}.settlement-paired thead th{font-size:10px}.settlement-paired .settlement-menu-cell strong{font-size:10px}.settlement-paired .settlement-menu-cell small{font-size:8px}.settlement-paired td>b,.settlement-paired tfoot th>b{font-size:10px}.settlement-paired td>small,.settlement-paired tfoot th>small{font-size:8px}}
+
+/* Give the profit half extra room while keeping one shared menu column. */
+.settlement-paired th:first-child,.settlement-paired td:first-child{width:26%}
+.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2){width:20%}
+.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3){width:10%}
+.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:28%}
+.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:16%}
+
+/* Fixed menu column, compact pub basis, wide inline profit calculation. */
+.settlement-paired th:first-child,.settlement-paired td:first-child{width:26%}
+.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2){width:15%}
+.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3){width:10%}
+.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:35%}
+.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:14%}
+.settlement-paired .settlement-profit-line{display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;font-size:12px;color:#4c3a50}
+.settlement-paired .settlement-profit-line b,.settlement-paired .settlement-profit-line strong{display:inline;font-size:12px;white-space:nowrap;color:#342a3c}
+.settlement-paired .settlement-profit-line span{font-size:11px;white-space:nowrap;color:#746a7d}
+@media(max-width:600px){.settlement-paired .settlement-profit-line{gap:3px;font-size:10px}.settlement-paired .settlement-profit-line b,.settlement-paired .settlement-profit-line strong{font-size:10px}.settlement-paired .settlement-profit-line span{font-size:9px}}
+.settlement-paired .settlement-profit-line{gap:9px}
+.settlement-paired .settlement-profit-line span:before{content:'·';margin-right:7px;color:#a69bab}
+.settlement-paired .settlement-profit-line span{font-size:12px}
+@media(max-width:600px){.settlement-paired .settlement-profit-line{gap:4px}.settlement-paired .settlement-profit-line span{font-size:9px}.settlement-paired .settlement-profit-line span:before{margin-right:3px}}
+
+/* Exact paired layout: smaller menu column, remaining width split 50/50. */
+.settlement-paired th:first-child,.settlement-paired td:first-child{width:20%}
+.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2){width:30%}
+.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3){width:10%}
+.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:30%}
+.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:10%}
+.settlement-paired .settlement-profit-line{gap:6px}
+@media(max-width:600px){.settlement-paired th:first-child,.settlement-paired td:first-child{width:20%}.settlement-paired th:nth-child(2),.settlement-paired td:nth-child(2){width:30%}.settlement-paired th:nth-child(3),.settlement-paired td:nth-child(3){width:10%}.settlement-paired th:nth-child(4),.settlement-paired td:nth-child(4){width:30%}.settlement-paired th:nth-child(5),.settlement-paired td:nth-child(5){width:10%}}
+.settlement-paired thead tr:first-child th:nth-child(2),.settlement-paired thead tr:first-child th:nth-child(3){width:40%}
