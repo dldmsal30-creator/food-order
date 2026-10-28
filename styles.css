@@ -62,7 +62,6 @@ body{background:var(--bg);color:var(--ink)}
 .order-form input:focus,.order-form textarea:focus{border-color:#ba94c6;box-shadow:0 0 0 3px #b991c31c}
 .bank-box{background:#f5edf7;border:1px solid #eadced}
 .receipt-status{background:#f6e5d7;color:#855436}
-.staff-callout{background:linear-gradient(135deg,#493451,#684a70);border:1px solid #876c8c;border-radius:16px}
 .toast{background:#493451;border:1px solid #735a78}
 @media(max-width:380px){.hero{min-height:184px}.hero h2{font-size:22px}.set-menu-card{padding:13px}.menu-description{font-size:10px}}
 
@@ -84,3 +83,6 @@ body{background:var(--bg);color:var(--ink)}
 
 .danger-button{margin-top:10px;border-color:#e6c5c1;background:#fff6f4;color:#9a433d}
 
+
+
+.receipt-identity{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 16px}.receipt-identity>div{display:grid;gap:5px;padding:13px;border:1px solid #e7dfeb;border-radius:12px;background:#f7f3f8}.receipt-identity small{color:#786d7e;font-size:11px;font-weight:700}.receipt-identity strong{color:#35283f;font-size:20px;font-weight:900;overflow-wrap:anywhere}.order-identity{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.order-identity strong{font-size:18px;color:#30243a;font-weight:900}.order-identity span{font-size:11px;color:#77796f}.payer-highlight{display:flex;align-items:center;gap:7px;margin-top:8px;padding:8px 10px;border-radius:9px;background:#fff2df;color:#70471f}.payer-highlight small{font-size:10px;font-weight:700}.payer-highlight b{font-size:14px;font-weight:900;overflow-wrap:anywhere}
