@@ -33,11 +33,11 @@
 .service-order-card li{border-bottom:1px solid #f0efe9}
 .service-order-card li:last-child{border:0}
 .service-order-card li label{display:flex;align-items:center;gap:12px;min-height:53px;padding:8px 2px;cursor:pointer;font-size:15px;font-weight:600}
-.service-order-card li input{appearance:none;width:27px;height:27px;border:2px solid #aaa99e;border-radius:7px;background:#fff;flex:none;display:grid;place-content:center;margin:0}
-.service-order-card li input:checked{background:#7a9d4e;border-color:#7a9d4e}
-.service-order-card li input:checked:after{content:'✓';color:white;font-size:20px;font-weight:900;line-height:1}
+.service-order-card li input[type="checkbox"]{-webkit-appearance:none!important;appearance:none!important;width:28px!important;height:28px!important;min-width:28px!important;flex:0 0 28px!important;display:grid!important;place-content:center;box-sizing:border-box!important;padding:0!important;margin:0!important;border:2px solid #aaa99e!important;border-radius:7px!important;background:#fff!important;cursor:pointer}
+.service-order-card li input[type="checkbox"]:checked{background:#789d4e!important;border-color:#789d4e!important}
+.service-order-card li input[type="checkbox"]:checked:after{content:'✓';color:#fff;font-size:20px;font-weight:900;line-height:1}
 .service-order-card li label b{font-size:14px;color:#75766d}
-.service-order-card li.served label span{text-decoration:line-through;color:#898b80}
+.service-order-card li label.served span{text-decoration:line-through;color:#898b80}
 .service-order-card li input:disabled{opacity:.6}
 .service-order-card ul:empty:after{content:'메뉴가 없는 주문입니다';display:block;padding:12px 0;color:#7d7d74;font-size:12px}
 .settlement-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
@@ -200,5 +200,14 @@
 .service-set-unit>strong{padding:2px 0;color:#80688a;font-size:11px}
 .service-set-unit label{display:flex;align-items:center;gap:10px;min-height:48px;padding:5px 2px;border-bottom:1px solid #f0ebf2;font-size:13px;font-weight:700;cursor:pointer}
 .service-set-unit label:last-child{border-bottom:0}
-.service-set-unit input{width:25px;height:25px;flex:none;accent-color:#7b5aa6}
-.service-set-unit label.served span{color:#8a8790;text-decoration:line-through}
+.service-set-unit input[type="checkbox"]{width:28px!important;height:28px!important;flex:0 0 28px!important}
+
+/* Shared light menu tray for every order, whether it contains one item or many. */
+.service-order-card ul.service-menu-list{list-style:none!important;display:block!important;margin:12px 0 0!important;padding:6px 12px!important;border:1px solid #eee5f0!important;border-radius:14px!important;background:#fcf9fd!important}
+.service-order-card ul.service-menu-list>li{border-bottom:1px solid #eee8ef!important}
+.service-order-card ul.service-menu-list>li:last-child{border-bottom:0!important}
+
+/* One custom checkbox and served appearance shared by every menu line. */
+#admin-content .service-menu-entry input[type="checkbox"]:checked{background:#789d4e!important;border-color:#789d4e!important}
+#admin-content .service-menu-entry input[type="checkbox"]:checked:after{content:'✓';color:#fff;font-size:20px;font-weight:900;line-height:1}
+#admin-content .service-menu-entry.served span,.service-set-unit label.served span{color:#898b80!important;text-decoration:line-through!important}

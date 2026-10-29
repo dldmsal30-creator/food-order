@@ -124,9 +124,9 @@
         (order.order_items||[]).map(item=>({name:item.item_name,quantity:item.quantity,description:item.item_description||'',served:!!item.served,served_components:item.served_components||{},id:item.id}));
       const complete=items.length>0&&items.every(item=>item.served);
       const time=new Date(order.created_at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false});
-      const renderToggle=(item,index,label,key='')=>{const checked=key?(Object.prototype.hasOwnProperty.call(item.served_components,key)?!!item.served_components[key]:item.served):item.served;return `<label class="${checked?'served':''}"><input type="checkbox" data-service-toggle data-order-id="${esc(order.id)}" data-item-index="${item.index??index}" data-item-id="${local?'':esc(item.id)}" ${key?`data-component-key="${esc(key)}"`:''} ${checked?'checked':''}><span>${esc(label)}</span></label>`};
-      const renderItem=(item,index)=>{const setName=canonicalSetName(item.name),parts=setComponentsForOrder(item.name,order);if(!parts)return `<li class="service-simple-item">${renderToggle(item,index,`${item.name} × ${item.quantity}`)}</li>`;const units=Array.from({length:Number(item.quantity)||1},(_,unit)=>`<div class="service-set-unit">${item.quantity>1?`<strong>세트 ${unit+1}</strong>`:''}${parts.map(([key,label])=>{const componentLabel=key==='에이드'&&order.special_drink_choice?`에이드 (${order.special_drink_choice})`:label;return renderToggle(item,index,`${componentLabel} × 1`,`${unit}:${key}`)}).join('')}</div>`).join('');return `<li class="service-set-item"><div class="service-set-title">${esc(item.name)} <b>× ${item.quantity}</b></div>${units}</li>`};
-      return `<article class="service-order-card ${complete?'is-served':''}"><header><strong>테이블 ${esc(order.table_number)}번</strong><time>${time}</time><span class="service-state">${complete?'전체 제공 완료':'제공 대기'}</span></header><ul>${items.map(renderItem).join('')}</ul></article>`;
+      const renderToggle=(item,index,label,key='')=>{const checked=key?(Object.prototype.hasOwnProperty.call(item.served_components,key)?!!item.served_components[key]:item.served):item.served;return `<label class="service-menu-entry ${checked?'served':''}" style="display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;min-height:53px!important;padding:8px 2px!important;cursor:pointer!important"><input type="checkbox" data-service-toggle data-order-id="${esc(order.id)}" data-item-index="${item.index??index}" data-item-id="${local?'':esc(item.id)}" ${key?`data-component-key="${esc(key)}"`:''} ${checked?'checked':''} style="-webkit-appearance:none!important;appearance:none!important;display:grid!important;place-content:center!important;flex:0 0 28px!important;width:28px!important;min-width:28px!important;max-width:28px!important;height:28px!important;min-height:28px!important;padding:0!important;margin:0!important;border:2px solid #aaa99e!important;border-radius:7px!important;background:#fff!important;box-sizing:border-box!important;cursor:pointer!important"><span style="display:block!important;flex:1 1 auto!important;min-width:0!important">${esc(label)}</span></label>`};
+      const renderItem=(item,index)=>{const setName=canonicalSetName(item.name),parts=setComponentsForOrder(item.name,order);if(!parts||parts.length===0)return `<li class="service-simple-item">${renderToggle(item,index,`${item.name} × ${item.quantity}`)}</li>`;const units=Array.from({length:Number(item.quantity)||1},(_,unit)=>`<div class="service-set-unit">${item.quantity>1?`<strong>세트 ${unit+1}</strong>`:''}${parts.map(([key,label])=>{const componentLabel=key==='에이드'&&order.special_drink_choice?`에이드 (${order.special_drink_choice})`:label;return renderToggle(item,index,`${componentLabel} × 1`,`${unit}:${key}`)}).join('')}</div>`).join('');return `<li class="service-set-item"><div class="service-set-title">${esc(item.name)} <b>× ${item.quantity}</b></div>${units}</li>`};
+      return `<article class="service-order-card ${complete?'is-served':''}"><header><strong>테이블 ${esc(order.table_number)}번</strong><time>${time}</time><span class="service-state">${complete?'전체 제공 완료':'제공 대기'}</span></header><ul class="service-menu-list">${items.map(renderItem).join('')}</ul></article>`;
     }).join('')||'<div class="empty-state">아직 들어온 주문이 없습니다.</div>'}</div>`;
     panel.querySelectorAll('[data-service-toggle]').forEach(input=>input.onchange=async()=>{
       input.disabled=true;const orderId=input.dataset.orderId,itemIndex=Number(input.dataset.itemIndex);
@@ -155,6 +155,12 @@
   async function init(){renderCategories();renderMenu();renderCartBar();await loadSettings();await loadSpecialAvailability();if(db){db.channel('admin-orders').on('postgres_changes',{event:'*',schema:'public',table:'orders'},()=>{if(!$('#admin-modal').classList.contains('hidden')&&$('#admin-panel'))renderDashboard()}).subscribe();db.channel('public-limited-menu-stock').on('postgres_changes',{event:'*',schema:'public',table:'menu_inventory'},()=>loadSpecialAvailability()).subscribe()}}
   init();
 })();
+
+
+
+
+
+
 
 
 
