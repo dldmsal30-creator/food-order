@@ -133,7 +133,7 @@
         renderLocalDashboard();return;
       }
       const itemId=input.dataset.itemId,componentKey=input.dataset.componentKey;const {error}=componentKey?await db.rpc('set_order_item_component_served',{p_order_item_id:Number(itemId),p_component_key:componentKey,p_served:input.checked}):await db.from('order_items').update({served:input.checked}).eq('id',itemId);
-      if(error){notify('제공 상태를 저장하지 못했습니다. 최신 supabase.sql을 적용했는지 확인해 주세요.');renderServicePanel(panel,false);return}
+      if(error){console.error('Set component serving update failed',error);notify('세트 체크용 SQL이 DB에 아직 적용되지 않았어요. admin_edit_orders.sql을 Supabase SQL Editor에서 실행한 뒤 새로고침해 주세요.');renderServicePanel(panel,false);return}
       await renderDashboard();
     });
   }
